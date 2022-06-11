@@ -10,6 +10,15 @@
     chata, <em>porém</em> é uma ótima forma de se trabaalhar, os ambientes
     em que programadores trabalham costumam oferecer <strong>ótima remuneração e
             desenvolvimento pessoal</strong></p>
+    <h1>Lista de posts</h1>
+    {% for post in posts %}
+        <div>
+            <p>Published: {{ post.published_date }}</p>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
 
 </body>
 </html>
