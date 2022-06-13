@@ -1,24 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Django working</title>
+{% load static %}
+<html>
+    <head>
+        <title>Django working</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/blog.css'%}">
 </head>
 <body>
-    <h1>Este é o template</h1>
-    <p>A programação de computadores é tida por muitos como uma disciplina
-    chata, <em>porém</em> é uma ótima forma de se trabaalhar, os ambientes
-    em que programadores trabalham costumam oferecer <strong>ótima remuneração e
-            desenvolvimento pessoal</strong></p>
-    <h1>Lista de posts</h1>
-    {% for post in posts %}
-        <div>
-            <p>Published: {{ post.published_date }}</p>
-            <h2><a href="">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
+    <div class="page-header">
+        <h1><a href="/">Blog Django Girls</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <h1>Lista de posts</h1>
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            <p>Published: {{ post.published_date }}</p>
+                        </div>
+                        <h2><a href="">{{ post.title }}</a></h2>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    {% endfor %}
-
-
-</body>
+    </div>
+    </body>
 </html>

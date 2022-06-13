@@ -13,6 +13,12 @@ class Post(models.Model):
         self.published_date=timezone.now()
         self.save()
 
+    def post_title(self):
+        return self.title
+
+    def post_text(self):
+        return self.text
+
     #retorno da própria classe
     def __str__(self):
         return self.title
